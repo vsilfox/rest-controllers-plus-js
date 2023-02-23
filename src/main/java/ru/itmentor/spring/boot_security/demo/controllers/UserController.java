@@ -12,9 +12,9 @@ import ru.itmentor.spring.boot_security.demo.security.UserDetailsImpl;
 public class UserController {
 
     @GetMapping()
-    public String showUser(Model model) {
+    public String showUserInfo(Model model) {
         UserDetailsImpl userDetails = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("user", userDetails.getUser());
-        return "user/user_info";
+        model.addAttribute("authenticatedUser", userDetails.getUser());
+        return "user";
     }
 }
